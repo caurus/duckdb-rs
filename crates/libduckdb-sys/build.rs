@@ -125,6 +125,9 @@ mod build_bundled {
 
         let mut cfg = cc::Build::new();
 
+        #[cfg(feature = "httpfs")]
+        add_extension(&mut cfg, &manifest, "httpfs", &mut cpp_files, &mut include_dirs);
+
         #[cfg(feature = "parquet")]
         add_extension(&mut cfg, &manifest, "parquet", &mut cpp_files, &mut include_dirs);
 
